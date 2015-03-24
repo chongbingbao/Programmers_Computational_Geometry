@@ -1,0 +1,367 @@
+
+第一章	基础数学
+第二章	数值精度
+第三章	平面
+3.1.	平面简介
+3.2.	平面初始化
+	位置：
+		ComputationalGeometry/Pritives/SrPlane3D.h
+		ComputationalGeometry/Pritives/SrPlane3D.cpp
+		函数：
+			根据三个不共线的点构造平面对象
+			SrPlane3D::SrPlane3D(const SrPoint3D&,const SrPoint3D&,const SrPoint3D&);
+			bool SrPlane3D::initPlane(const SrPoint3D&,const SrPoint3D&,const SrPoint3D&);
+			根据平面法向量和经过平面的一个点构造平面
+			SrPlane3D::SrPlane3D(const SrVector3D&,const SrPoint3D&);
+			bool SrPlane3D::initPlane(const SrVector3D&,const SrPoint3D&);
+3.3.	点、向量与平面
+	位置：
+		ComputationalGeometry/Pritives/SrPlane3D.h
+		ComputationalGeometry/Pritives/SrPlane3D.cpp
+		函数：
+			点到平面的距离
+			SrReal	SrPlane3D::toPointDistance(const SrPoint3D& p)const;
+			SrReal	SrPlane3D::toPointSignedDistance(const SrPoint3D&)const;
+			点到平面的投影
+			const SrPoint3D  SrPlane3D::projectPoint(const SrPoint3D&) const;
+			向量到平面的投影
+			const SrVector3D SrPlane3D::projectVector(const SrVector3D&) const;
+3.4.	直线与平面
+	位置：
+		ComputationalGeometry/Pritives/SrPlane3D.h
+		ComputationalGeometry/Pritives/SrPlane3D.cpp
+		函数：
+			直线与平面的夹角
+			SrReal SrPlane3D::intersectAngleLine(const SrLine3D&) const;
+			线性对象与平面的关系，若相交，返回相交点
+			int SrPlane3D::intersectLine(const SrLine3D&,SrPoint3D&) const;
+			int SrPlane3D::intersectRay(const SrRay3D&,SrPoint3D&) const;
+			int SrPlane3D::intersectSegment(const SrSegment3D&,SrPoint3D&) const;
+3.5.	平面与平面
+	位置
+		ComputationalGeometry/Pritives/SrPlane3D.h
+		ComputationalGeometry/Pritives/SrPlane3D.cpp
+		函数：
+			计算平面与平面的夹角
+			SrReal SrPlane3D::intersectAnglePlane(const SrPlane3D&) const;
+			判断两个平面是否相交，若相交，返回相交的直线
+			bool SrPlane3D::intersectPlane(const SrPlane3D& plane,SrLine3D& line)const;
+3.6.	“近似”平面
+	位置
+		ComputationalGeometry/Pritives/SrPlane3D.h
+		ComputationalGeometry/Pritives/SrPlane3D.cpp
+		函数:
+			根据点集，确定近似平面
+			SrPlane3D::SrPlane3D(const SrPoint3D*,int);
+			bool SrPlane3D::initPlane(const SrPoint3D*,int);
+第四章	线性对象
+4.1.	线性对象简介
+4.2.	点与线性对象的关系
+	位置:
+		ComputationalGeometry/Pritives/SrLine2D.h
+		ComputationalGeometry/Pritives/SrLine2D.cpp
+		ComputationalGeometry/Pritives/SrRay2D.h
+		ComputationalGeometry/Pritives/SrRay2D.cpp
+		ComputationalGeometry/Pritives/SrSegement2D.h
+		ComputationalGeometry/Pritives/SrSegement2D.cpp
+		函数:
+			点与线性对象的关系
+			int pointLocation(const SrPoint2D&)const;
+4.3.	点到线性对象的距离
+	位置：
+		ComputationalGeometry/Pritives/SrLine2D.h
+		ComputationalGeometry/Pritives/SrLine2D.cpp
+		ComputationalGeometry/Pritives/SrRay2D.h
+		ComputationalGeometry/Pritives/SrRay2D.cpp
+		ComputationalGeometry/Pritives/SrSegement2D.h
+		ComputationalGeometry/Pritives/SrSegement2D.cpp
+		ComputationalGeometry/Pritives/SrLine3D.h
+		ComputationalGeometry/Pritives/SrLine3D.cpp
+		ComputationalGeometry/Pritives/SrRay3D.h
+		ComputationalGeometry/Pritives/SrRay3D.cpp
+		ComputationalGeometry/Pritives/SrSegement3D.h
+		ComputationalGeometry/Pritives/SrSegement3D.cpp
+		函数：
+			点到线性对象的距离
+			SrReal toPointDistance(const SrPoint2D&)const;
+4.4.	线性对象间的距离
+	位置：
+		ComputationalGeometry/Pritives/SrLine3D.h
+		ComputationalGeometry/Pritives/SrLine3D.cpp
+		ComputationalGeometry/Pritives/SrRay3D.h
+		ComputationalGeometry/Pritives/SrRay3D.cpp
+		ComputationalGeometry/Pritives/SrSegement3D.h
+		ComputationalGeometry/Pritives/SrSegement3D.cpp
+		函数：
+			线性对象间的距离
+			SrReal distanceLineSquared(const SrLine3D&)const;
+			SrReal distanceRaySquared(const SrRay3D&)const;
+			SrReal distanceSegmentSquared(const SrSegment3D&)const;
+4.5.	线性对象的相交
+	位置：
+		ComputationalGeometry/Pritives/SrLine2D.h
+		ComputationalGeometry/Pritives/SrLine2D.cpp
+		ComputationalGeometry/Pritives/SrRay2D.h
+		ComputationalGeometry/Pritives/SrRay2D.cpp
+		ComputationalGeometry/Pritives/SrSegement2D.h
+		ComputationalGeometry/Pritives/SrSegement2D.cpp
+		函数:
+			线性对象的相交
+			int intersectLine(const SrLine2D& ,SrPoint2D&)const;
+			int intersectRay(const SrRay2D&, SrPoint2D&)const;
+			int intersectSegment(const SrSegment2D&, SrPoint2D&)const;
+	位置：
+		ComputationalGeometry/Segment2DIntersectSegment2D/
+		函数：
+		参数方程法
+		int SegmentIntersectSegment_Parameter(const Segment2D&,const Segment2D&)
+		交叉跨越法
+		int SegmentIntersectSegment_Corment(const Segment2D&,const Segment2D&)
+		Antonio极简法
+		int SegmentIntersectSegment_Antonio(const Segment2D&,const Segment2D&)
+4.6.	直线之间的夹角
+	位置:
+		ComputationalGeometry/Pritives/SrLine3D.h
+		ComputationalGeometry/Pritives/SrLine3D.cpp
+		函数:
+			计算直线之间的夹角
+			SrReal interAngleLine(const SrLine3D&,bool lineDirDesired=true)const;
+4.7.	线段集的交
+	位置：
+		ComputationalGeometry/AlgorithmBentleyOttmann/
+		函数：
+			Bentley Ottmann算法求线段集的交
+			void BentleyOttmannIntersection(const Segment* segs,int numSegs)
+第五章	三角形
+5.1.	三角形简介
+5.2.	点与三角形
+	位置：
+		ComputationalGeometry/Pritives/SrTriangle2D.h
+		ComputationalGeometry/Pritives/SrTriangle2D.cpp
+		ComputationalGeometry/Pritives/SrTriangle3D.h
+		ComputationalGeometry/Pritives/SrTriangle3D.cpp
+		函数：
+			点与三角形的关系
+			int		pointLocation(const SrPoint2D&) const;
+			点与三角形的距离
+			SrReal	toPointDistance(const SrPoint3D&) const;
+5.3.	线性对象与三角形的交
+	位置：
+		ComputationalGeometry/Pritives/SrTriangle3D.h
+		ComputationalGeometry/Pritives/SrTriangle3D.cpp
+		函数：
+			线性对象与三角形的交
+			int lineHitTest(const SrLine3D&,SrPoint3D& /*[OUT]*/ result)const;
+			int rayHitTest(const SrRay3D&,SrPoint3D& /*[OUT]*/ result)const;
+			int segmentHitTest(const SrSegment3D&,SrPoint3D& /*[OUT]*/ result)const;
+5.4.	三角形与三角形的重叠检测
+	位置：
+		ComputationalGeometry/Triangle3DOverlapTriangle3D/
+		函数：
+			朴素算法
+			bool Tri3DOverlapTestTri3D_Naive(const SrTriangle3D& tri1,const SrTriangle3D& tri2)
+			ERIT算法
+			bool Tri3DOverlapTestTri3D_ERIT(const SrTriangle3D& tri1,const SrTriangle3D& tri2)
+			Guigue算法
+			bool Tri3DOverlapTestTri3D_Guigue(const Triangle3D& tri1,const Triangle3D& tri2)
+			Moller算法
+			bool Tri3DOverlapTestTri3D_Moller(const Triangle3D& tri1,const Triangle3D& tri2)
+第六章	矩形
+6.1.	矩形对象简介
+6.2.	点与矩形
+		位置：
+			ComputationalGeometry/Pritives/SrRectangle2D.h
+			ComputationalGeometry/Pritives/SrRectangle2D.cpp
+			函数：
+				点到矩形的距离
+				SrReal	toPointDistance(const SrPoint2D&) const;
+				点与矩形的关系
+				int		pointLocation(const SrPoint2D&) const;
+6.3.	线性对象的裁剪
+		位置：
+			ComputationalGeometry/Rectangle2DClipLinearObject2D/
+			函数:
+				Cohen-Sutherlad 裁剪算法
+				bool cohenSutherland()
+				Liang-Barsky 裁剪算法
+				bool LiangBarsky()
+第七章	多边形
+7.1.	多边形简介
+7.2		多边形生成算法
+		位置：
+			ComputationalGeometry/GenerateConvexPolygon/
+			函数:
+				随机生成一个凸包
+				void GenerateConvex()
+		位置：
+			ComputationalGeometry/GenerateMonotonePolygon/
+			函数:
+				随机生成单调多边形
+				bool GenMonotonePolygon()
+		位置：
+			ComputationalGeometry/GenerateSimplePolygon/
+			函数:
+				随机生成简单多边形
+				void GenerateSimplePolygon()
+		位置：
+			ComputationalGeometry/GenerateStarShapedPolygon/
+			函数:
+				随机生成星状多边形
+				void GenStarShapePolygon()
+7.3.	多边形判定
+		位置：
+			ComputationalGeometry/TestSimplePolygonForMonotonicity/
+			函数:
+				判断一个简单多边形是否是单调的
+				bool CheckMonotone()
+		位置：
+			ComputationalGeometry/TestSimplePolygonForConvexity/
+			函数:
+				判断一个多边形是否是凸的
+				bool bool IsConvex()
+7.4.	多边形的面积
+7.5.	点与多边形的关系
+		位置：
+			ComputationalGeometry/PointPolygonRelation/
+			函数:
+				交叉法
+				int PointSimplePolygon_Crossing()
+				角度累积法
+				int PointSimplePolygon_IncrementalAngle()
+				二分法
+				int PointConvexPolygon_BinarySearch()
+7.6.	凸多边形的极点
+		位置：
+			ComputationalGeometry/ExtremePointOfConvex/
+			函数:
+				暴力算法
+				int ExtremePoint_Naive()
+				二分搜索法
+				int ExtremePoint_BinarySearch()
+7.7.	直线与凸多边形的距离
+7.8.	线性对象与多边形的交
+		位置：
+			ComputationalGeometry/LineIntersectConvex/
+			函数:
+				Cyrus Beck算法
+				int LineInterConvex_CyrusBeck()
+				二分算法
+				int LineInterConvex_Binary()
+7.9.	简单多边形的凸包化
+		位置：
+			ComputationalGeometry/ConvexHullSimplePolygon/
+			函数:
+				简单多边形的凸包化
+				void ConvexHullSimplePolygon()
+第八章	旋转测径
+8.1.	旋转测径简介
+8.2		凸多边形的直径
+		位置：
+			ComputationalGeometry/DiameterOfConvex/
+			函数:
+				暴力算法计算凸多边形的直径
+				Real Diameter_Naive()
+				旋转测径法计算凸多边形的直径
+				Real Diameter_RotatingCalipers
+8.3		凸多边形的宽
+8.4		最小面积包围矩形
+		位置：
+			ComputationalGeometry/MinimumAreaEnclosingRectangle/
+			函数:
+				最小面积包围矩形
+				Real MinAreaRectangle()
+8.5		最小周长包围矩形
+8.6		凸多边形间的距离
+		位置：
+			ComputationalGeometry/MinimumDistBetweenTwoConvex/
+			函数:
+				暴力算法计算凸多边形间的最小距离
+				Real MinimumDist_Naive()
+				旋转测径法计算凸多边形间的最小距离
+				Real MinimumDist_RotatingCalipers()
+8.7.	其它
+		位置：
+			ComputationalGeometry/MaximumDistBetweenTwoConvex/
+			函数:
+				暴力算法计算凸多边形间的最大距离
+				Real MaximumDist_Naive()
+				旋转测径法计算凸多边形间的最大距离
+				Real MaximumDist_RotatingCalipers()
+		位置：
+			ComputationalGeometry/CommonTangents/
+			函数:
+				计算两个凸多边形的桥接边
+				void CommonTangents()
+第九章	凸包
+9.1.	凸包简介
+9.2.	凸包算法综述
+9.3.	Graham扫描算法
+		位置：
+			ComputationalGeometry/GrahamScan/
+			函数:
+				Graham扫描算法求凸包
+				void GrahamScanHull()
+9.3.	礼物包裹算法
+		位置：
+			ComputationalGeometry/GiftWrapping/
+			函数:
+				礼物包裹算法计算三维凸包
+				bool giftWrapping()
+9.4.	快速凸包算法
+		位置：
+			ComputationalGeometry/QuickHull/
+			函数:
+				快速凸包算法计算三维凸包
+				class QuickHull;
+第十章	多面体
+第十一章	包围体
+11.1.	包围体简介
+11.2.	包围盒
+		位置：
+			ComputationalGeometry/OBBCreation/
+			函数:
+				估计给定凸包的OBB
+				const SrOBBox3D approximateSmallestOBB();
+		位置：
+			ComputationalGeometry/SegmentOverlapOBB/
+			函数:
+				厚板法
+				bool SegmentOverlapTestOBB_SlabsMethod();
+				快速法，Gregory, A., et al. "H-COLLIDE: A framework for fast and accurate collision detection for haptic interaction."
+				bool SegmentOverlapTestOBB_FastTesting();
+		位置：
+			ComputationalGeometry/PlaneHitTestBV/
+			函数:
+				距离判定法，判断平面与OBB的是否相交
+				int	Plane3DHitTestOBB_DistanceMethod();
+				最接近对角线法,判断平面与OBB的是否相交
+				int Plane3DHitTestAABB_DiagonalMethod()
+		位置：
+			ComputationalGeometry/TriangleOverlapTestBV/
+			函数:
+				基于分离轴理论，判断三角形与包围盒是否重叠
+				bool TriangleIntersectionOBB_SeparatingAxisMethod()
+				基于Voorhies算法，判断三角形与包围盒是否重叠，参考Douglas Voorhies. "Triangle-cube intersection." Graphics Gems III. Academic Press Professional, Inc., 1992.
+				bool TriangleIntersectionOBB_Voorhies()
+		位置：
+			ComputationalGeometry/OBBOverlapTestOBB/
+			函数:
+				暴力算法，进行OBB与OBB的重叠检测
+				bool OBBOverlapTestOBB_NaiveMethod()
+				优化后的算法，进行OBB与OBB的重叠检测
+				bool OBBOverlapTestOBB_OptimizedSeparatingAxisMethod()
+11.3.	包围球
+			ComputationalGeometry/SmallestEnclosingBall/
+			函数:
+				创建最小包围球
+				const SrSphere3D createBoundingSphere()
+				测试http://www.inf.ethz.ch/personal/gaertner/miniball.html的算法效率
+				const SrSphere3D test_SmallestEnclosingSphere_Gaertner()
+			ComputationalGeometry/Ray3DHitTestSphere/
+			函数:
+				参数法，进行射线与球的相交测试
+				bool RayHitTestSphere_Parameter()
+				优化后的方法，进行射线与球的相交测试
+				bool RayHitTestSphere_Optimized()
+
+
